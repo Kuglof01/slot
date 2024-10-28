@@ -359,4 +359,5 @@ if __name__ == "__main__":
     ui = Ui_PocsiSpin()
     ui.setupUi(PocsiSpin)
     PocsiSpin.show()
-    sys.exit(app.exec_())
+	app.exec_()
+    sys.exit()
