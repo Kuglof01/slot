@@ -146,6 +146,20 @@ class Ui_PocsiSpin(object):
         self.c10.setObjectName("c10")
         self.c10.clicked.connect(self.ch10)
         
+        self.all1 = QtWidgets.QLabel(self.centralwidget)
+        self.all1.setGeometry(QtCore.QRect(345, 330, 50, 50))
+        self.all1.setStyleSheet("border-image: none; background-color: rgb(0, 0, 0); color: rgb(255, 255, 255)")
+        self.all1.setText("ALL_IN")
+        font.setPointSize(40)
+        self.all1.setScaledContents(True)
+        self.all1.setObjectName("reset")
+
+        self.a1 = QtWidgets.QPushButton(self.centralwidget)
+        self.a1.setGeometry(QtCore.QRect(345, 330, 50, 50))
+        self.a1.setStyleSheet("border-image: none; background-color: rgba(0, 0, 0, 0)")
+        self.a1.setObjectName("a1")
+        self.a1.clicked.connect(self.allin)
+
         self.reset1 = QtWidgets.QLabel(self.centralwidget)
         self.reset1.setGeometry(QtCore.QRect(345, 380, 50, 50))
         self.reset1.setStyleSheet("border-image: none")
@@ -218,6 +232,8 @@ class Ui_PocsiSpin(object):
         self.c50.raise_()
         self.reset1.raise_()
         self.r1.raise_()
+        self.all1.raise_()
+        self.a1.raise_()
         PocsiSpin.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(PocsiSpin)
@@ -257,8 +273,16 @@ class Ui_PocsiSpin(object):
 
     def reset(self):
         bet = self.lcdNumber_2.value()
-        bet -= bet
+        
         self.lcdNumber_2.setProperty("value", bet)
+
+    def allin(self):
+        bet = self.lcdNumber_2.value()
+        bal = self.lcdNumber.value()
+        bet -= bet
+        bet += bal
+        self.lcdNumber_2.setProperty("value", bet)
+
 
     def clicked_button(self):
          
